@@ -1,0 +1,1 @@
+Planning a new class / tutorial set around essential command line skills.
