@@ -6,6 +6,7 @@
 
 * understanding of the "unix philosophy" of small commands
 * understanding of unix processes
+* stdout, stderr
 
 ### The Environment
 
@@ -91,11 +92,28 @@
 ### Advanced Tools
 
 * find
+	* Search for files
+	* `find dir -name 'abc*'`
+	* `-name` is only one way; can also search by time, owner, size, etc
+    * A common use case is to delete files: `find dir -name 'abc*' -exec rm -i {} \;`
 * ps
-* top
+	* Show information about all running processes
+	* `ps -ax`, `ps -axv`
+	* you may also encounter BSD syntax: `ps ax` (no dash)
+	* for constantly updating process information, use `top`
 * curl
+	* make an HTTP request
+	* GET a url: `curl http://example.com/users.html`
+	* POST a url: `curl -d 'name=jonathan' http://example.com/users`
+	* PUT a url: `curl -X PUT -d 'name=jonathan' http://example.com/users/5`
+	* DELETE a url: `curl -X DELETE http://example.com/users/5`
+	* show HTTP headers: `curl -D - http://example.com`
 * lsof
-* awk/sed
+	* List Open Files - shows what files and sockets are in use
+	* easily show what network connections are open: `lsof -iTCP`
+	* what connections are from a certain ip? `lsof -i@1.2.3.4`
+	* what files is a process using? `lsof -p2132`
+	* many other options - a very powerful tool
 
 ### Techniques
 
